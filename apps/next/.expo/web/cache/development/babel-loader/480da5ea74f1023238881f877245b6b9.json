@@ -1,0 +1,1 @@
+{"ast":null,"code":"export default UserDetailScreen;","map":{"version":3,"sources":["/home/zee/Desktop/test/apps/next/pages/login/index.tsx"],"names":["UserDetailScreen"],"mappings":"AAEA,eAAeA,gBAAf","sourcesContent":["import { LoginScreen } from 'app/features/user/detail-screen'\n\nexport default UserDetailScreen\n"]},"metadata":{},"sourceType":"module"}
