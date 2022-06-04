@@ -5,8 +5,7 @@ import { Text, useSx, View, H1, P, Row, A, styled, ScrollView } from 'dripsy'
 import { TextLink } from 'solito/link'
 import { MotiLink } from 'solito/moti'
 
-const Container = styled(View)({
-})
+const Container = styled(View)({})
 
 const Widgets = styled(View)({
   flexDirection: 'row',

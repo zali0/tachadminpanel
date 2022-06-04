@@ -57,7 +57,7 @@ const SideBar = () => {
           <LinkName>Users</LinkName>
         </SidebarLink>
       </Link>
-      <Link href="/login">
+      <Link href="/stores">
         <SidebarLink>
           <MaterialIcons name="store" size={24} color="black" />
           <LinkName>Tach Stores</LinkName>

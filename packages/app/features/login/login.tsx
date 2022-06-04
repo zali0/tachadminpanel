@@ -1,8 +1,20 @@
 import { SIZES } from 'app/constants'
-import { Text, useSx, View, H1, P, Row, A, styled, TextInput } from 'dripsy'
+import {
+  Text,
+  useSx,
+  View,
+  H1,
+  P,
+  Row,
+  A,
+  styled,
+  TextInput,
+  Pressable,
+} from 'dripsy'
 import React from 'react'
 import { Platform } from 'react-native'
 import { Link, TextLink } from 'solito/link'
+import { useRouter } from 'solito/router'
 
 const Container = styled(View)({
   width: '100%',
@@ -51,6 +63,11 @@ const FieldValue = styled(TextInput)({
   fontSize: SIZES.$1,
 })
 
+const Error = styled(Text)({
+  alignSelf: 'center',
+  color: 'red',
+})
+
 const LoginButton = styled(View)({
   width: '50%',
   bg: '$primary',
@@ -72,8 +89,32 @@ const Footer = styled(Text)({
 
 export function LoginScreen() {
   const sx = useSx()
+  const { push } = useRouter()
   const [username, setUsername] = React.useState<string>('')
   const [password, setPassword] = React.useState<string>('')
+  const [error, setError] = React.useState<string>('')
+  const handleLogin = () => {
+    console.log('Handling Login')
+    if (!username) {
+      setError('Please enter the username.')
+      return
+    }
+    if (!password) {
+      setError('Please enter the password.')
+      return
+    }
+    if (username === 'zeee' && password === 'bismillah') {
+      console.log('Successfull Login')
+      push({
+        pathname: '/',
+        query: {
+          slug: 'drake',
+        },
+      })
+    } else {
+      setError('Wrong username or password...')
+    }
+  }
   return (
     <Container>
       <Showcase></Showcase>
@@ -91,15 +132,21 @@ export function LoginScreen() {
           </Field>
           <Field>
             <FieldName>Password</FieldName>
-            <FieldValue secureTextEntry={true} />
+            <FieldValue
+              secureTextEntry={true}
+              onChangeText={(text) => {
+                setPassword(text)
+              }}
+            />
           </Field>
-          <Link href="/">
+          <Error>{error}</Error>
+          <Pressable onPress={handleLogin}>
             <LoginButton>
               <LoginButtonText selectable={false} sx={{ color: 'white' }}>
                 Login
               </LoginButtonText>
             </LoginButton>
-          </Link>
+          </Pressable>
         </Form>
         <Footer>©Tach 2021, All rights Reserved</Footer>
       </Login>

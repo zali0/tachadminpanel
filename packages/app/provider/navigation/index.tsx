@@ -18,8 +18,8 @@ export function NavigationProvider({
               login: 'login',
               home: '',
               users: 'users',
-              
-              'user-detail': 'user/:id',
+              stores: 'stores',
+              addStore: 'addStore',
             },
           },
         }),

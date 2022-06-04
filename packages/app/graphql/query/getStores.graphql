@@ -1,0 +1,18 @@
+query GetStores {
+  getStores {
+    id
+    name
+    phoneNumber
+    products {
+      id
+      name
+      manufacturer
+      quantity
+      quantityUnit
+      price
+      description
+      image
+      department
+    }
+  }
+}

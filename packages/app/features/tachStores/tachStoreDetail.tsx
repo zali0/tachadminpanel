@@ -1,6 +1,6 @@
 import { Layout } from 'app/components/Layout'
 import { SIZES } from 'app/constants'
-import { View, Text, styled } from 'dripsy'
+import { View, Text, styled, Pressable } from 'dripsy'
 import React from 'react'
 import { DataTable } from 'react-native-paper'
 import { createParam } from 'solito'
@@ -37,8 +37,11 @@ const Cell = styled(DataTable.Cell)({
   marginLeft: SIZES.$1,
 })
 
+
 const optionsPerPage = [2, 3, 4]
-export function UsersScreen() {
+export function TachStoreDetail() {
+  const { useParam } = createParam()
+  const [id, setId] = useParam('id')
   const [page, setPage] = React.useState<number>(0)
   const [itemsPerPage, setItemsPerPage] = React.useState(optionsPerPage[0])
 
@@ -48,18 +51,18 @@ export function UsersScreen() {
   return (
     <Layout>
       <Container>
-        <Title>Users</Title>
-        <Text>Total number of users: 20</Text>
+        <Title>TACH STORE DETAIL {id}</Title>
+        <Text>Total number of stores: 20</Text>
         <Table>
           <HeadRow>
             <DataTable.Title>
               <HeadCol>ID</HeadCol>
             </DataTable.Title>
             <DataTable.Title>
-              <HeadCol>Name</HeadCol>
+              <HeadCol>OrderId</HeadCol>
             </DataTable.Title>
             <DataTable.Title>
-              <HeadCol>Ph. No</HeadCol>
+              <HeadCol>User</HeadCol>
             </DataTable.Title>
 
             <DataTable.Title>

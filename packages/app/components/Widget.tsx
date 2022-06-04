@@ -14,7 +14,7 @@ const Container = styled(View)({
   bg: '$black',
   borderRadius: SIZES.$1,
   margin: SIZES.$2,
-  width: Platform.OS === 'web' ? '' : '45%',
+  width: Platform.OS === 'web' ? '20%' : '45%',
 })
 
 const Title = styled(Text)({
